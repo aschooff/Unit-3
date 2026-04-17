@@ -1,11 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+    <!-- Boilerplate HTML file for D3 choropleth map + coordinated bar chart -->
     <head>
         <link rel="stylesheet" href="css/style.css">
     </head>
-
+    <!-- Body contains divs for the map, chart, dropdown, and info label, as well as a header with title and description -->
     <body>
-        <script src="lib/d3.v7.js"></script>
+    <!-- Legend container -->
+    <div id="legendContainer"></div>
+
+    <!-- Main layout container -->
+    <div id="layout">
+        <!-- Header with title and description -->
+        <div id="header">
+            <h1>Demographic Composition of Janesville Wards</h1>
+            <p>This map and coordinated visualization shows the demographic 
+                composition of each ward in the City of Janesville in the year 2020. The data used 
+                in this analysis is sourced from GeoData@Wisconsin, an online geoportal 
+                that provides access to spatial data for the state of Wisconsin. 
+                The data was collected by state agencies, and can be found <a href="https://geodata.wisc.edu/catalog/ECE0D09A-C329-40B2-B556-0F8270EFF92F" target="_blank">here</a>. 
+                The data shows the percentage of residents in each ward that identify as either 
+                White, Black, Hispanic, Asian, American Indian, Pacific Islander, or Other. 
+                Use the dropdown menu above the map to select a demographic category of interest, and use 
+                the mouse to hover over a bar on the chart or a ward on the map to see it's percentage of people that identify under the selected demographic.</p>
+        </div>
+            <!-- Left column with dropdown and map -->
+            <div id="leftColumn">
+                <div id="dropdownContainer"></div>
+                <div id="mapContainer"></div>
+            </div>
+            <!-- Middle column with image -->
+            <div id="middleColumn">
+                <!-- Image of Janesville wards on truth map for reference -->
+                <div id="truthContainer">
+                    <div id = "middleImagePosition">
+                        <img id="middleImage" src = "img/janesville.jpg" alt="Janesville Wards">
+                    </div>
+                </div>
+            </div>
+            <!-- Right column with bar chart -->
+            <div id="rightColumn">
+                <div id="rightInner">
+                    <div id="chartContainer"></div>
+                </div>
+            </div>
+
+    </div>
+
+
+    <!-- Include D3, TopoJSON, and main JS file -->
+    <script src="lib/d3.v7.js"></script>
     <script src="lib/topojson/topojson.js"></script>
     <script src="js/main.js"></script>
 
